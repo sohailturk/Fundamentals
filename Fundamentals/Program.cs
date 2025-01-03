@@ -15,14 +15,19 @@
         //<summary>
         // method<c>GetPositive</c> takes array as param and returns list of positive
         //</summary>
-        static List<int> GetPositive(int[] arr)
+        static List<int> GetPositive(int[] arr, out int countNonPositive)
         {
+            countNonPositive = 0;
             List<int> result = new List<int>();
             foreach (var item in arr)
             {
                 if (item > 0)
                 {
                     result.Add(item);
+                }
+                else
+                {
+                    countNonPositive++;
                 }
             }
             return result;
@@ -77,12 +82,15 @@
             //}
             Console.WriteLine();
 
-
-            List<int> positiveInts = GetPositive(a);
+            int countNonPositive;
+            List<int> positiveInts = GetPositive(a, out countNonPositive);
             foreach (var item in positiveInts)
             {
                 Console.Write(item + " ");
             }
+            Console.WriteLine();
+
+            Console.WriteLine(countNonPositive + " ");
 
 
             Console.Read();

@@ -4,9 +4,17 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
-            Console.WriteLine(2+2);
-            Console.ReadLine();
+            bool isParseSuccessful;
+            int val;
+            do
+            {
+                var input = Console.ReadLine();
+                isParseSuccessful = int.TryParse(input, out val);
+            } while (!isParseSuccessful);
+
+
+            Console.WriteLine("success " + val);
+            Console.Read();
         }
     }
 }
